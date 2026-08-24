@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard</title>
+</head>
+<body>
+
+{% extends 'base.html' %}
+{% block content %}
+<div class="container-fluid">
+<div class="row">
+<div class="col-md-2 sidebar">
+<h3 class="text-center mt-3">
+<i class="fa-solid fa-hospital"></i>
+PMS
+</h3>
+<hr>
+<a href="#">
+<i class="fa-solid fa-gauge"></i>
+Dashboard
+</a>
+<a href="#">
+<i class="fa-solid fa-user"></i>
+Patients
+</a>
+<a href="#">
+<i class="fa-solid fa-calendar"></i>
+Appointments
+</a>
+<a href="#">
+<i class="fa-solid fa-notes-medical"></i>
+Visits
+</a>
+<a href="#">
+<i class="fa-solid fa-users"></i>
+Users
+</a>
+<a href="{% url 'logout' %}">
+<i class="fa-solid fa-right-from-bracket"></i>
+Logout
+</a>
+</div>
+<div class="col-md-10">
+<nav class="navbar navbar-light bg-white shadow-sm">
+<div class="container-fluid">
+<h4>Patient Management Dashboard</h4>
+<span>
+Welcome,
+{{request.user.username}}
+</span>
+</div>
+</nav>
+<div class="container mt-4">
+<div class="row">
+<div class="col-md-3">
+<div class="card">
+<div class="card-body">
+<h5>Total Patients</h5>
+<h2>0</h2>
+</div>
+</div>
+</div>
+<div class="col-md-3">
+<div class="card">
+<div class="card-body">
+<h5>Appointments</h5>
+<h2>0</h2>
+</div>
+</div>
+</div>
+<div class="col-md-3">
+<div class="card">
+<div class="card-body">
+<h5>Visits</h5>
+<h2>0</h2>
+</div>
+</div>
+</div>
+<div class="col-md-3">
+<div class="card">
+<div class="card-body">
+<h5>Users</h5>
+<h2>1</h2>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+{% endblock %}
+</body>
+</html>
+
