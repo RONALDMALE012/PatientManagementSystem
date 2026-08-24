@@ -1,0 +1,45 @@
+
+{% extends 'base.html' %}
+{% block content %}
+<div class="container mt-4">
+<h2>Patients</h2>
+<a href="{% url 'add_patient' %}" class="btn btn-primary mb-3">
+Add Patient
+</a>
+<table class="table table-bordered">
+<thead>
+<tr>
+<th>ID</th>
+<th>Name</th>
+<th>Gender</th>
+<th>Phone</th>
+<th>Actions</th>
+</tr>
+</thead>
+<tbody>
+{% for patient in patients %}
+<tr>
+<td>{{ patient.patient_id }}</td>
+<td>{{ patient.first_name }} {{ patient.last_name }}</td>
+<td>{{ patient.gender }}</td>
+<td>{{ patient.phone }}</td>
+<td>
+<a href="{% url 'edit_patient' patient.patient_id %}" class="btn btn-warning btn-sm">
+Edit
+</a>
+<a href="{% url 'delete_patient' patient.patient_id %}" class="btn btn-danger btn-sm">
+Delete
+</a>
+</td>
+</tr>
+{% empty %}
+<tr>
+<td colspan="5">
+No patients found.
+</td>
+</tr>
+{% endfor %}
+</tbody>
+</table>
+</div>
+{% endblock %}
