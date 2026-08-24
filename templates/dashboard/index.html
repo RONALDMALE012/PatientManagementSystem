@@ -53,34 +53,34 @@ Welcome,
 <div class="container mt-4">
 <div class="row">
 <div class="col-md-3">
-<div class="card">
+<div class="card text-bg-primary">
 <div class="card-body">
 <h5>Total Patients</h5>
-<h2>0</h2>
+<h2>{{ total_patients }}</h2>
 </div>
 </div>
 </div>
 <div class="col-md-3">
-<div class="card">
+<div class="card text-bg-success">
 <div class="card-body">
 <h5>Appointments</h5>
-<h2>0</h2>
+<h2>{{ total_appointments }}</h2>
 </div>
 </div>
 </div>
 <div class="col-md-3">
-<div class="card">
+<div class="card text-bg-warning">
 <div class="card-body">
 <h5>Visits</h5>
-<h2>0</h2>
+<h2>{{ total_visits }}</h2>
 </div>
 </div>
 </div>
 <div class="col-md-3">
-<div class="card">
+<div class="card text-bg-dark">
 <div class="card-body">
 <h5>Users</h5>
-<h2>1</h2>
+<h2>{{ total_users }}</h2>
 </div>
 </div>
 </div>
@@ -89,6 +89,69 @@ Welcome,
 </div>
 </div>
 </div>
+<div class="card mt-4">
+<div class="card-header">
+Recent Patients
+</div>
+<div class="card-body">
+<table class="table">
+<thead>
+<tr>
+<th>Name</th>
+<th>Gender</th>
+<th>Phone</th>
+</tr>
+</thead>
+<tbody>
+{% for patient in recent_patients %}
+<tr>
+<td>{{ patient.first_name }} {{ patient.last_name }}</td>
+<td>{{ patient.gender }}</td>
+<td>{{ patient.phone }}</td>
+</tr>
+{% empty %}
+<tr>
+<td colspan="3">
+No patients found.
+</td>
+</tr>
+{% endfor %}
+</tbody>
+</table>
+</div>
+</div>
+<div class="card mt-4">
+<div class="card-header">
+Upcoming Appointments
+</div>
+<div class="card-body">
+<table class="table">
+<thead>
+<tr>
+<th>Patient</th>
+<th>Doctor</th>
+<th>Date</th>
+</tr>
+</thead>
+<tbody>
+{% for appointment in recent_appointments %}
+<tr>
+<td>{{ appointment.patient }}</td>
+<td>{{ appointment.doctor }}</td>
+<td>{{ appointment.appointment_date }}</td>
+</tr>
+{% empty %}
+<tr>
+<td colspan="3">
+No appointments scheduled.
+</td>
+</tr>
+{% endfor %}
+</tbody>
+</table>
+</div>
+</div>
+
 {% endblock %}
 </body>
 </html>
