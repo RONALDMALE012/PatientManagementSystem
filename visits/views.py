@@ -1,6 +1,9 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import Visit
 from .forms import VisitForm
+from django.contrib.auth.decorators import login_required
+
+@login_required
 def visit_list(request):
     visits = Visit.objects.select_related('patient').all()
     return render(request,

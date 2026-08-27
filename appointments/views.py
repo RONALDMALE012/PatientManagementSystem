@@ -1,6 +1,9 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import Appointment
 from .forms import AppointmentForm
+from django.contrib.auth.decorators import login_required
+
+@login_required
 def appointment_list(request):
     appointments = Appointment.objects.select_related('patient').all()
     return render(request, 'appointments/appointment_list.html', {

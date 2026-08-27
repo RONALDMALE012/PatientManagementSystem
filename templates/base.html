@@ -13,6 +13,21 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
 <body>
 {% block content %}
 {% endblock %}
+{% if messages %}
+<div class="container mt-3">
+{% for message in messages %}
+<div class="alert alert-success">
+{{ message }}
+</div>
+{% endfor %}
+</div>
+{% endif %}
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<footer class="text-center mt-5 mb-3">
+Patient Management System © 2026
+Developed by Male Ronald
+</footer>
+
 </body>
 </html>

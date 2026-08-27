@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container mt-4">
+<h2>Reports</h2>
+<div class="list-group">
+<a href="{% url 'patient_report' %}" class="list-group-item">
+Patient Report
+</a>
+<a href="{% url 'appointment_report' %}" class="list-group-item">
+Appointment Report
+</a>
+<a href="{% url 'visit_report' %}" class="list-group-item">
+Visit Report
+</a>
+</div>
+</div>
+{% endblock %}

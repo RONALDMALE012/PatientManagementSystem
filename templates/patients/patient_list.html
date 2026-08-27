@@ -6,6 +6,20 @@
 <a href="{% url 'add_patient' %}" class="btn btn-primary mb-3">
 Add Patient
 </a>
+<form method="GET" class="mb-3">
+<div class="input-group">
+<input
+type="text"
+name="q"
+class="form-control"
+placeholder="Search patient..."
+value="{{ request.GET.q }}">
+<button class="btn btn-primary">
+Search
+</button>
+</div>
+</form>
+
 <table class="table table-bordered">
 <thead>
 <tr>
@@ -27,9 +41,12 @@ Add Patient
 <a href="{% url 'edit_patient' patient.patient_id %}" class="btn btn-warning btn-sm">
 Edit
 </a>
-<a href="{% url 'delete_patient' patient.patient_id %}" class="btn btn-danger btn-sm">
+<a href="{% url 'delete_patient' patient.patient_id %}"
+class="btn btn-danger btn-sm"
+onclick="return confirm('Delete this patient?')">
 Delete
 </a>
+
 </td>
 </tr>
 {% empty %}

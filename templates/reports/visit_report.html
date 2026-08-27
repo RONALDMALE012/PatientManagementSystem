@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container mt-4">
+<h2>Visit Report</h2>
+<button onclick="window.print()" class="btn btn-success mb-3">
+Print Report
+</button>
+<table class="table table-bordered">
+<thead class="table-dark">
+<tr>
+<th>ID</th>
+<th>Name</th>
+<th>Gender</th>
+<th>Phone</th>
+</tr>
+</thead>
+<tbody>
+{% for visit in visits %}
+<tr>
+<td>{{ patient.patient_id }}</td>
+<td>{{ patient.first_name }} {{ patient.last_name }}</td>
+<td>{{ patient.gender }}</td>
+<td>{{ patient.phone }}</td>
+</tr>
+{% endfor %}
+</tbody>
+</table>
+</div>
+{% endblock %}
